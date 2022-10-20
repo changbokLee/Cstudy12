@@ -33,24 +33,24 @@ void insert(int data){
     node->next = cur;
 }
 
-void removeFront(){
-    Node* node = head->next;
-    head->next = node-> next;
-    Node*next = node->next;
-    next->prev = head;
-    free(node);
-}
-
-void show(){
-    Node* cur = head->next;
-    while (cur! = tail){
-        printf("%d", cur->data);
-        cur = cur -> next;
-    }
-}
 
 int main(void)
 {
+    
+    head = (Node*) malloc(sizeof(Node));
+    tail = (Node*) malloc(sizeof(Node));
+    head -> next = tail;
+    head -> prev = head;
+    tail -> next = tail;
+    tail -> next = head;
+    insert(2);
+    insert(1);
+    insert(3);
+    insert(9);
+    insert(7);
+    removeFront();
+    show();
+    return 0;
    
     return 0;
 }
